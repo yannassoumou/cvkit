@@ -1,9 +1,22 @@
-# cvkit — Bootstrap Guide for AI Agents
+# cvkit — One-Line Setup for AI Agents
 
 > **Read this file first.** This is the single source of truth for setting up cvkit.
-> AI agents should execute every step automatically.
 
-> **⚠️ Note for Agents**: This file uses `<ROOT_PROJECT>` as a placeholder for the project root directory. Replace it with the actual path when executing commands.
+---
+
+## 🚀 One-Line Installation
+
+### For AI Agents (via curl)
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/yannassoumou/cvkit/refs/heads/main/cvkit.md
+```
+
+This command fetches and displays the complete setup documentation.
+
+### For Humans (Interactive Setup)
+
+Open this file in your browser: [cvkit.md on GitHub](https://github.com/yannassoumou/cvkit/blob/main/cvkit.md)
 
 ---
 
@@ -17,12 +30,30 @@ cvkit is an AI-powered toolkit for generating tailored, ATS-compatible CVs and c
 
 ## 📋 Setup Steps (Execute All)
 
-### 1. Clone the Repository
+### 0. Choose Project Directory
+
+**LLM asks the user:**
+> "Where would you like to install cvkit? Please provide the full path to your project directory (e.g., `/Users/username/projects/cv` or `/home/username/cv`)."
+
+**User responds with their preferred directory path.**
+
+**LLM validates and uses:**
+- Path must be absolute (starts with `/`)
+- Path must be writable
+- Directory will be created if it doesn't exist
+
+**Set `<ROOT_PROJECT>` to user's response for all subsequent commands.**
+
+### 1. Create Project Structure
 
 ```bash
 cd <ROOT_PROJECT>
-git clone https://github.com/YOUR_USERNAME/cvkit.git
-cd cvkit
+
+# Create required directories
+mkdir -p .agents/skills/ Offers/ archive/ scripts/ templates/ .private/
+
+# Create config from template
+cp config.template.yaml config.yaml
 ```
 
 ### 2. Install System Dependencies
@@ -71,67 +102,28 @@ brew install --cask camofox
 # Download from: https://github.com/brave/camofox
 ```
 
-### 3. Pull Skills from skills-cv Repository
+### 3. Install Skills from skills-cv Repository
 
 > **⚠️ Requirement**: `skills-cv` must be accessible for this step to work.
 
-```bash
-# Pull skills into .agents/skills/
-git subtree pull --prefix=.agents/skills https://github.com/yannassoumou/skills-cv.git main --allow-unrelated-histories
-```
-
-**If the repository is private**, use SSH:
-```bash
-git subtree pull --prefix=.agents/skills git@github.com:yannassoumou/skills-cv.git main --allow-unrelated-histories
-```
-
-**Verify skills are installed:**
-```bash
-ls -la .agents/skills/
-# Expected: camofox-browser/ cv-job-application-workflow/
-```
-
-### 4. Recreate Folder Structure
-
-Ensure this structure exists:
-
-```
-cvkit/
-├── CV_Master_texte.txt          # 🔲 USER PROVIDES (your CV in markdown format)
-├── CV_Master_template.txt       # ✅ PROVIDED (template with placeholders)
-├── config.yaml                  # 🔲 USER PROVIDES (create from template below)
-├── config.template.yaml         # ✅ PROVIDED (configuration template)
-├── scripts/                     # ✅ PROVIDED (generation scripts)
-│   ├── generate_cv_page_budget.py
-│   ├── generate_all_latex_cvs.py
-│   └── ...
-├── templates/                   # ✅ PROVIDED (LaTeX templates)
-│   ├── latex_cv_template.tex
-│   └── delescen/
-├── Offers/                      # 🔲 CREATED ON FIRST JOB APPLICATION
-│   └── offer1_company_role/
-│       ├── CV_Company_Role.pdf
-│       ├── Lettre_Motivation.pdf
-│       ├── offre_data.md
-│       └── README.md
-├── archive/                     # 🔲 CREATED ON CV UPDATE
-├── .agents/skills/              # 🔲 PULLED FROM skills-cv (Step 3)
-├── .private/                    # ✅ PROVIDED (private features)
-├── cvkit.md                     # ✅ PROVIDED (this file)
-├── README.md                    # ✅ PROVIDED (public documentation)
-└── QWEN.md                      # 🔲 CREATED BY AGENT (private configuration)
-```
-
-**Create missing directories:**
-```bash
-mkdir -p Offers/ archive/
-```
-
-### 5. Create config.yaml
+The `skills-cv` repository contains multiple skills. Install the ones you need:
 
 ```bash
-cp config.template.yaml config.yaml
+# Install all CV-related skills
+npx skills add https://github.com/yannassoumou/skills-cv --skill cv-job-application-workflow
+npx skills add https://github.com/yannassoumou/skills-cv --skill cv-job-matching
+npx skills add https://github.com/yannassoumou/skills-cv --skill job-offer-cv-adaptation-workflow
+npx skills add https://github.com/yannassoumou/skills-cv --skill cv-adaptation
+npx skills add https://github.com/yannassoumou/skills-cv --skill cv-improvement-workflow
+npx skills add https://github.com/yannassoumou/skills-cv --skill cv-creation-from-scratch
+npx skills add https://github.com/yannassoumou/skills-cv --skill camofox-browser
+npx skills add https://github.com/yannassoumou/skills-cv --skill csv-to-cv-generation
+
+# Verify skills are installed
+npx skills list
 ```
+
+### 4. Create config.yaml
 
 **Agent prompts the user to fill in:**
 - Full name
@@ -285,12 +277,13 @@ The `.agents/skills/` directory contains comprehensive documentation for AI agen
 | Skill | Purpose | When to Use |
 |-------|---------|-------------|
 | **camofox-browser** | Anti-detection browser server for web scraping | Extracting job offers from LinkedIn, bypassing bot detection |
-| **cv-job-application-workflow** | Full pipeline: extract → adapt → generate | When you receive a job offer |
+| **csv-to-cv-generation** | Generate CVs and cover letters from CSV/Excel data | When you have structured job application data |
+| **cv-job-application-workflow** | Full pipeline: extract → adapt → generate → organize | When you receive a job offer |
 | **cv-source-update** | Update master CV with new info | When you get a new job/certification |
-| **cv-improvement-workflow** | Design & ATS optimization | When you want to improve CV quality |
+| **cv-adaptation** | Role-specific customization | When adapting CV for specific position |
 | **cv-creation-from-scratch** | Build CV without existing source | When starting from zero |
+| **cv-improvement-workflow** | Design & ATS optimization | When you want to improve CV quality |
 | **cv-job-matching** | Match CV to job requirements | When evaluating job fit |
-| **cv-adaptation** | Role-specific customization | When adapting for specific role |
 
 Each skill includes:
 - Trigger conditions (when to use)
