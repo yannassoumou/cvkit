@@ -1,0 +1,219 @@
+% ============================================================
+% CV Template — CANONICAL
+% ATS-friendly, single-column, navy blue, 10pt compact
+% Copy everything before the \begin{document} line for each CV
+% Replace the BODY with the user's actual content
+% ============================================================
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{needspace}
+
+% ── Colors ─────────────────────────────────────────────────
+\definecolor{primary}{RGB}{0,51,102}     % Navy blue
+\definecolor{secondary}{RGB}{100,100,100}
+\definecolor{accent}{RGB}{80,80,80}
+
+% ── Hyperlinks ─────────────────────────────────────────────
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primary,
+    urlcolor=primary,
+    pdftitle={CV},
+    pdfauthor={}
+}
+
+% ── Section formatting ─────────────────────────────────────
+\titleformat{\section}
+    {\normalfont\large\bfseries\color{primary}}
+    {\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+
+\titleformat{\subsection}
+    {\normalfont\bfseries\color{primary}}
+    {}{0em}{}
+\titlespacing*{\subsection}{0pt}{4pt}{2pt}
+
+% ── List formatting (compact) ──────────────────────────────
+\setlist[itemize]{
+    leftmargin=*,
+    noitemsep,
+    topsep=2pt,
+    before=\vspace{1pt},
+    after=\vspace{1pt}
+}
+
+% ── Custom commands ────────────────────────────────────────
+\newcommand{\cvsection}[1]{%
+    \needspace{3\baselineskip}%
+    \vspace{6pt}%
+    \section*{#1}%
+    \hrule%
+    \vspace{3pt}%
+}
+
+\newcommand{\cvsubsection}[2]{%
+    \needspace{2\baselineskip}%
+    \subsection*{#1}%
+    \hfill #2%
+    \vspace{1pt}%
+}
+
+\newcommand{\cvsubsubsection}[2]{%
+    \needspace{3\baselineskip}%
+    \noindent\textbf{#1} #2%
+    \vspace{1pt}%
+}
+
+% ═══════════════════════════════════════════════════════════
+% DOCUMENT
+% ═══════════════════════════════════════════════════════════
+\begin{document}
+
+% ── HEADER ─────────────────────────────────────────────────
+\begin{center}
+    {\Huge\bfseries\color{primary} MARC DUBOIS}
+
+    \vspace{4pt}
+    {\large\color{secondary} Senior Data Engineer}
+
+    \vspace{6pt}
+    {\small\color{accent} 14 rue de la République, 75011 Paris, France}
+
+    \vspace{2pt}
+    {\small\color{accent} +33 6 12 34 56 78}
+
+    \vspace{2pt}
+    {\small\color{accent} marc.dubois@email.com}
+
+    \vspace{6pt}
+    {\small\color{accent}
+        \href{https://linkedin.com/in/marcdubois}{linkedin.com/in/marcdubois}
+        \hspace{12pt}$|$\hspace{12pt}
+        \href{https://github.com/mdubois}{github.com/mdubois}
+    }
+\end{center}
+
+\vspace{4pt}
+\noindent\rule{\textwidth}{0.5pt}
+
+% ── PROFIL ─────────────────────────────────────────────────
+\cvsection{PROFIL}
+
+Data Engineer avec 7~ans d'expérience, spécialisé en pipelines ETL, déploiement LLM et infrastructure cloud. Passionné par l'open-source et les systèmes distribués.
+
+% ── COMPÉTENCES TECHNIQUES ─────────────────────────────────
+\cvsection{COMPÉTENCES TECHNIQUES}
+
+\begin{itemize}
+    \item \textbf{Langages :}
+        Python, SQL, Rust, Bash
+
+    \item \textbf{Data Engineering :}
+        Apache Spark, Airflow, Kafka, dbt, Terraform
+
+    \item \textbf{Cloud \& DevOps :}
+        GCP (BigQuery, Cloud Run, GKE), Docker, CI/CD (GitHub Actions)
+
+    \item \textbf{Machine Learning :}
+        LLM deployment (vLLM, llama.cpp), scikit-learn, spaCy
+
+    \item \textbf{Bases de données :}
+        PostgreSQL, BigQuery, MongoDB, Redis
+\end{itemize}
+
+% ── COMPÉTENCES TRANSVERSALES ──────────────────────────────
+\cvsection{COMPÉTENCES TRANSVERSALES}
+
+\begin{itemize}
+    \item Communication technique
+    \item Gestion de projet agile
+    \item Mentorat junior
+    \item Documentation
+\end{itemize}
+
+% ── EXPÉRIENCES PROFESSIONNELLES ───────────────────────────
+\cvsection{EXPÉRIENCES PROFESSIONNELLES}
+
+\cvsubsection{Senior Data Engineer}{DataCorp}
+{\\ Janvier 2022 -- Présent}
+\begin{itemize}
+    \item Conception et déploiement d'un pipeline ETL traitant 10~M+ événements/jour
+    \item Mise en place d'une infrastructure de serving LLM pour le support client
+    \item Stack: Python, Airflow, Kafka, GCP, FastAPI
+\end{itemize}
+
+\cvsubsection{Data Engineer}{TechStart}
+{\\ Mars 2019 -- Décembre 2021}
+\begin{itemize}
+    \item Développement d'un lakehouse sur Databricks pour 50+ utilisateurs
+    \item Migration d'un data warehouse on-premise vers GCP
+    \item Stack: PySpark, dbt, Terraform, BigQuery
+\end{itemize}
+
+\cvsubsection{Junior Data Developer}{WebAgency}
+{\\ Septembre 2017 -- Février 2019}
+\begin{itemize}
+    \item Création de dashboards pour 20+ clients
+    \item Automatisation de rapports hebdomadaires
+    \item Stack: SQL, Tableau, Python
+\end{itemize}
+
+% ── PROJETS PERSONNELS ─────────────────────────────────────
+\needspace{15\baselineskip}
+\cvsection{PROJETS PERSONNELS}
+
+\cvsubsubsection{VectorLake — Vector search engine distribué}
+    {GitHub: \href{https://github.com/mdubois/vectorlake}{mdubois/vectorlake}}
+\begin{itemize}
+    \item Moteur de recherche vectoriel en Rust avec index HNSW
+    \item API REST en Python, intégration avec LangChain — 1.2k stars
+    \item Stack: Rust, Python, FAISS, Docker
+\end{itemize}
+
+\cvsubsubsection{DataForGood — Plateforme de matching bénévoles/ONGs}
+    {GitHub: \href{https://github.com/mdubois/dataforgood}{mdubois/dataforgood}}
+\begin{itemize}
+    \item Pipeline de matching NLP entre profils bénévoles et missions
+    \item Réduction du temps de matching de 48~h à 2~minutes
+    \item Stack: spaCy, FastAPI, PostgreSQL
+\end{itemize}
+
+% ── CERTIFICATIONS ─────────────────────────────────────────
+\cvsection{CERTIFICATIONS}
+
+\begin{itemize}
+    \item \textbf{Google Cloud Professional Data Engineer}
+          Google, 2023 — Certification active
+
+    \item \textbf{Databricks Data Engineer Associate}
+          Databricks, 2021
+\end{itemize}
+
+% ── FORMATION ──────────────────────────────────────────────
+\cvsection{FORMATION}
+
+\cvsubsection{Master Data Science \& IA}
+    {École Polytechnique \\ 2017}
+\begin{itemize}
+    \item Mathématiques appliquées, machine learning, systèmes distribués
+\end{itemize}
+
+\cvsubsection{Licence Informatique}
+    {Université Paris-Saclay \\ 2015}
+
+% ── LANGUES ────────────────────────────────────────────────
+\cvsection{LANGUES}
+
+\begin{itemize}
+    \item Français : Langue maternelle
+    \item Anglais : Courant (TOEIC 950)
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,102 @@
+[YOUR_FULL_NAME]
+[Your Job Title]
+----------------------------------------
+
+COORDONNÉES
+-----------
+📍 [Your Address, Postal Code City, Country]
+📞 [Your Phone Number]
+📧 [your.email@example.com]
+💼 [linkedin.com/in/yourprofile]
+🔗 [github.com/yourusername]
+
+PROFIL
+------
+[Write a 2-3 line professional summary. Mention years of experience, key domain expertise, and what drives you professionally. Example: "Data Analyst with 5 years of experience in data pipelines, process automation, and data quality. Passionate about artificial intelligence, I designed a complete RAG system and integrated AI for log analysis, demonstrating my ability to transform raw data into actionable intelligence."]
+
+EXPÉRIENCES PROFESSIONNELLES
+-----------------------------
+
+[Job Title] | [Company Name]
+[Start Date] - [End Date or Présent]
+• [Key achievement or responsibility — use action verbs, quantify when possible]
+• [Key achievement or responsibility — emphasize relevant skills]
+• [Key achievement or responsibility — focus on impact and results]
+
+[Job Title] | [Company Name]
+[Start Date] - [End Date]
+• [Key achievement or responsibility]
+• [Key achievement or responsibility]
+• [Key achievement or responsibility]
+
+[Job Title] | [Company Name]
+[Start Date] - [End Date]
+• [Key achievement or responsibility]
+• [Key achievement or responsibility]
+• [Key achievement or responsibility]
+
+PROJET PERSONNEL
+----------------
+
+[Project Name] — [Brief description of what the project does]
+[Role] | [Date range]
+• [Key feature or achievement]
+• [Tech stack or technologies used]
+• [Impact or results — e.g., "Deployed on GCP with auto-scaling"]
+
+CERTIFICATIONS
+--------------
+
+[Certification Name]
+[Issuing Organization] | [Date obtained or Expected]
+• [What you mastered or key topics covered]
+• [Relevant skills or tools learned]
+
+COMPÉTENCES TECHNIQUES
+----------------------
+
+Langages de programmation :
+• [Language] ([proficiency]) - [relevant applications]
+• [Language] ([proficiency]) - [relevant applications]
+• [Language] ([proficiency]) - [relevant applications]
+
+Frameworks & Technologies :
+• [Category] : [Technologies]
+• [Category] : [Technologies]
+• [Category] : [Technologies]
+
+Bases de données :
+• [Database type] : [Databases]
+• [Database type] : [Databases]
+
+COMPÉTENCES TRANSVERSALES
+-------------------------
+
+• [Soft skill 1]
+• [Soft skill 2]
+• [Soft skill 3]
+• [Soft skill 4]
+• [Soft skill 5]
+
+FORMATION
+---------
+
+[Degree Name] — [Specialization]
+[University/Institution] | [Date range]
+• [Key focus areas or notable projects]
+
+[Degree Name]
+[University/Institution] | [Date range]
+
+LANGUES
+-------
+
+• [Language] : [Proficiency level]
+• [Language] : [Proficiency level]
+
+CENTRES D'INTÉRÊT
+-----------------
+
+• [Interest 1]
+• [Interest 2]
+• [Interest 3]
